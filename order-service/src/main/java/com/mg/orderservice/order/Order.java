@@ -1,14 +1,17 @@
 package com.mg.orderservice.order;
 
+import org.springframework.data.annotation.Id;
+
 public class Order {
-    private String orderId;
-    private String userId;
+    @Id
+    private Long orderId;
+    private Long userId;
     private String summary;
 
     public Order() {
     }
 
-    public Order(String orderId, String userId, String summary) {
+    public Order(Long orderId, Long userId, String summary) {
         this.orderId = orderId;
         this.userId = userId;
         this.summary = summary;
@@ -22,19 +25,19 @@ public class Order {
         this.summary = summary;
     }
 
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 }

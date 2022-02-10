@@ -11,16 +11,6 @@ import java.util.List;
 @RestController("/user")
 public class UserController {
 
-    /***
-     TODO
-     -- addUser
-     -- getUser
-     -- getUserList
-     -- add order to user
-     -- get user order
-     -- get list of user orders
-     */
-
     @Autowired
     private UserService userService;
 
