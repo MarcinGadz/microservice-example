@@ -1,10 +1,16 @@
-package com.mg.userservice.user;
+package com.mg.userservice.model;
+
+
+import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class User {
+    @Id
+    private Long userId;
     private String username;
+
     private List<String> orders;
 
     public User() {
