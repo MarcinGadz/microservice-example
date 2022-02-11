@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+/***
+ * TODO create eureka service
+ * TODO create docker-compose with database
+ * TODO create some init data in scripts
+ */
 @RestController("/user")
 public class UserController {
 
