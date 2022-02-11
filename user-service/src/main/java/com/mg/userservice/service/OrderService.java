@@ -14,5 +14,4 @@ public class OrderService {
     public List<Order> getByUser(Long userId) {
         return Collections.emptyList();
     }
-
 }
