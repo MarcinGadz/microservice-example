@@ -26,7 +26,7 @@ public class UserController {
 
     @GetMapping("/{username}/orders")
     public List<Order> getOrders(@PathVariable String username) {
-        return userService.getUserOrders();
+        return userService.getUserOrders(username);
     }
 
     @PostMapping("/{username}/order")
