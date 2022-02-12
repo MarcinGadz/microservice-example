@@ -1,39 +1,43 @@
 package com.mg.userservice.controller;
 
-import com.mg.userservice.user.User;
+import com.mg.userservice.model.Order;
+import com.mg.userservice.service.UserService;
+import com.mg.userservice.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/user")
+
+/***
+ * TODO create docker-compose with database
+ * TODO create some init data in scripts
+ */
+@RequestMapping("/user")
+@RestController
 public class UserController {
-    private List<User> userList;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping
     public List<User> getUserList() {
-        return userList;
+        return userService.findAll();
     }
 
     @PostMapping
     public User addUser(@RequestBody User u) {
-
-        if (u.getUsername() == null) return null;
-        if (userList.stream().anyMatch(obj -> obj.getUsername().equals(u.getUsername()))) return null;
-
-        userList.add(u);
-        return u;
+        return userService.addUser(u);
     }
 
-    @GetMapping("/{username}")
-    public List<String> getOrders(@PathVariable String username) {
-        User u = userList.stream().filter(user -> user.getUsername().equals(username)).findFirst().orElseThrow();
-        return u.getOrders();
+    @GetMapping("/{username}/orders")
+    public List<Order> getOrders(@PathVariable String username) {
+        return userService.getUserOrders(username);
     }
-    @PutMapping("/{username}/{orderId}")
-    public String addOrder(@PathVariable String username,
-                           @PathVariable String orderId) {
-        User u = userList.stream().filter(user -> user.getUsername().equals(username)).findFirst().orElseThrow();
-        u.addOrder(orderId);
-        return orderId;
+
+    @PostMapping("/{username}/order")
+    public Order addOrder(@PathVariable String username,
+                           @RequestBody Order order) {
+        return userService.addOrder(username, order);
     }
 }

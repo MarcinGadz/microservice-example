@@ -1,24 +1,36 @@
 package com.mg.orderservice.controller;
 
 import com.mg.orderservice.order.Order;
+import com.mg.orderservice.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/order")
+@RequestMapping("/order")
+@RestController
 public class OrderController {
+
+    @Autowired
+    private OrderService service;
+
     @GetMapping
     public List<Order> getList() {
-        return null;
+        return service.getAll();
     }
 
     @PostMapping
     public Order add(@RequestBody Order order) {
-        return order;
+        return service.add(order);
     }
 
     @GetMapping("/{orderId}")
-    public List<String> getOrders(@PathVariable String orderId) {
-        return null;
+    public Order getOrders(@PathVariable Long orderId) {
+        return service.getById(orderId);
+    }
+
+    @GetMapping("/{userId}")
+    public List<Order> getByUserId(@PathVariable Long userId) {
+        return service.getByUser(userId);
     }
 }

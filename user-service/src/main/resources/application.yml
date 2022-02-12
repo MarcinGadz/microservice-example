@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: "user-service"
+  data:
+    mongodb:
+      uri: "mongodb://172.44.0.2:27017/users"
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+eureka:
+  client:
+    enabled: true
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: "http://172.44.0.99:8761/eureka"
+  instance:
+    prefer-ip-address: true
