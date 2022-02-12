@@ -9,11 +9,6 @@ import java.util.List;
 
 @Service
 public class OrderService {
-    // TODO
-    // add service discovery microservice
-    // add support for service discovery
-    // add support for docker
-    // run and test
 
     @Autowired
     private OrderDAO orderDAO;
