@@ -10,11 +10,11 @@ import java.util.List;
 
 
 /***
- * TODO create eureka service
  * TODO create docker-compose with database
  * TODO create some init data in scripts
  */
-@RestController("/user")
+@RequestMapping("/user")
+@RestController
 public class UserController {
 
     @Autowired
