@@ -14,7 +14,7 @@ import java.util.List;
 public interface OrderFeignClient {
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/order/{userId}",
+            value = "/order/user/{userId}",
             consumes = "application/json")
     List<Order> getByUser(@PathVariable("userId") Long userId);
 
