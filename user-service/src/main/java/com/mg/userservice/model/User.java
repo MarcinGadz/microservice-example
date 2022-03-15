@@ -15,7 +15,7 @@ public class User {
     @Indexed(unique = true)
     private String username;
 
-    private List<String> orders;
+    private List<String> orders = new ArrayList<>();
 
     public User() {
     }
