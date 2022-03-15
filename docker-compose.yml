@@ -46,6 +46,17 @@ services:
                         - 8080
                 ports:
                         - "8082:8080"
+        cloud-gateway:
+                image: cloud-gateway:current
+                container_name: cloud-gateway
+                hostname: cloud-gateway
+                networks:
+                        test-net:
+                                ipv4_address: 172.44.0.10
+                expose:
+                        -       8080
+                ports:
+                        -       "5555:8080"
         eureka-server:
                 image: eureka-server:current
                 container_name: eureka-server
