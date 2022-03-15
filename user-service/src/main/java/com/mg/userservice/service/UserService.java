@@ -11,12 +11,7 @@ import java.util.List;
 
 @Service
 public class UserService {
-    /***
-     TODO
-     -- add order to user
-     -- get list of user orders
-     -- add database
-     */
+
 
     @PostConstruct
     private void addUsers() {
